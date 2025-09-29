@@ -5,6 +5,10 @@ export default {
     extend: {
       colors:{
         'bag-color':'#8EB7BD'
+      },
+      fontFamily: {
+        lexend: ['"Lexend Deca"', 'sans-serif'],
+        display: ['"Bebas Neue"','cursive']
       }
     },
   },

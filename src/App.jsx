@@ -1,19 +1,9 @@
-import "./App.css";
-import Events from "./Events.jsx"
+import About from './About';
 
-function App() {
+export default function App(){
   return (
-<<<<<<< HEAD
-    <>
-    
-    <Events/>
-    </>
-=======
-    <div className="flex items-center justify-center text-3xl h-[100vh]">
-      Hello Carpediem !!
+    <div style={{minHeight:'100vh', width:'100%', backgroundColor:'#0e1040'}}>
+      <About />
     </div>
->>>>>>> 6871cd386a9a028d5c459c4dfb446cf895cf5f59
   );
 }
-
-export default App;

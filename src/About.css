@@ -1,0 +1,70 @@
+/* Clean base layout */
+.about-section {
+  padding: 60px clamp(1.5rem,4vw,3.5rem) 70px;
+  background-image: url('/about_bg.svg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  box-sizing: border-box;
+  color: #fff;
+  position: relative;
+}
+
+/* Image deck at top centered */
+.image-deck {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 46px;
+  margin: 0 auto 70px;
+  max-width: 1200px;
+  position: relative;
+}
+
+.deck { width: 300px; height: 220px; position: relative; border:4px solid #74c65d; box-shadow:0 10px 28px -6px rgba(0,0,0,.55); overflow:hidden; background:#091034; }
+.deck img { width:100%; height:100%; object-fit:cover; display:block; }
+.deck-center { z-index: 2; transform: translateY(-40px); border-color:#9ad772; }
+.deck-left { transform: rotate(-11deg); }
+.deck-right { transform: rotate(12deg); }
+.rotate-a { transform: rotate(-12deg); }
+.rotate-b { transform: rotate(10deg); }
+
+/* Grid layout: two rows */
+.about-grid {
+  display: grid;
+  grid-template-columns: minmax(140px, 230px) 1fr;
+  column-gap: 70px;
+  row-gap: 55px;
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+.about-word { font-family: 'Bebas Neue', sans-serif; font-size: clamp(5.5rem,11vw,10.5rem); line-height:0.85; font-weight:400; letter-spacing:2px; }
+.about-word.large { font-size: clamp(6.5rem,12.5vw,12rem); }
+
+.about-text { font-size: .85rem; line-height:1.45; font-family: 'Lexend Deca', sans-serif; text-align: left; }
+.about-text p { margin:0 0 14px; }
+.about-text p:last-child { margin-bottom:0; }
+
+/* Responsive adjustments */
+@media (max-width: 1100px){
+  .about-grid { column-gap: 50px; }
+  .about-word { font-size: clamp(5rem,12vw,9rem); }
+  .about-word.large { font-size: clamp(6rem,13vw,10.5rem); }
+  .image-deck { gap: 34px; }
+}
+@media (max-width: 880px){
+  .image-deck { gap: 26px; margin-bottom: 50px; }
+  .deck { width:240px; height:180px; }
+  .deck-center { transform: translateY(-32px); }
+  .about-grid { grid-template-columns: minmax(120px,190px) 1fr; column-gap:40px; row-gap:45px; }
+}
+@media (max-width: 640px){
+  .about-grid { grid-template-columns: 1fr; }
+  .about-word, .about-word.large { text-align:center; }
+  .about-text { text-align:center; }
+  .image-deck { flex-direction: row; transform: scale(.85); gap:20px; }
+  .deck-left, .deck-right { display:none; }
+  .deck-center { transform: translateY(0); }
+}
