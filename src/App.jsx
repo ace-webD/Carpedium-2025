@@ -1,9 +1,25 @@
 import About from './About';
+import Count from './Count';
+import './App.css';
 
-export default function App(){
+
+export default function App() {
   return (
-    <div style={{minHeight:'100vh', width:'100%', backgroundColor:'#0e1040'}}>
-      <About />
+    <div className="app-shell">
+      <section className="about-wrapper">
+        <About />
+      </section>
+
+      
+      <div className="wave-transition" aria-hidden="true">
+        <img
+          src="/Frame.svg"
+        />
+      </div>
+
+      
+        <Count />
+        
     </div>
   );
 }

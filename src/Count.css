@@ -1,0 +1,184 @@
+
+@font-face {
+  font-family: 'DeliriumNCV';
+  src: url('./assets/DELIRIUM NCV.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+.about-stats-section {
+  position: relative;
+  width: 100vw;
+  min-height: 658px; 
+  background: url('/counter_bg.svg') center top/cover no-repeat;
+  font-family: 'DeliriumNCV', sans-serif;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+
+.stats-container {
+  width: 1074px;       
+  max-width: 90%;      
+  margin: 0 auto;      
+  display: grid;
+  grid-template-rows: auto auto;
+  transform: translateX(-12px);
+  gap: 20px;
+  padding-left: 2px;  
+  padding-right: 2px;
+}
+
+
+.stats-grid.first-grid {
+  display: grid;
+  grid-template-columns: 156px 1fr 156px;
+  justify-items: start;  
+  align-items: center;
+  gap: 40px;
+}
+
+.stats-grid.first-grid .stat-item {
+  font-family: 'DeliriumNCV', sans-serif;
+  font-size: 12.75rem;       
+  font-weight: 400;
+  width: 156px;          
+  height: 143px;         
+  line-height: 100%;    
+  letter-spacing: 0%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  opacity: 1;
+}
+
+.stats-grid.first-grid .stat-item:nth-child(2) {
+  justify-self: center;
+  text-align: center;
+}
+
+
+.stats-grid.second-grid {
+  display: grid;
+  grid-template-columns: 156px 1fr 156px; 
+  justify-items: start;
+  align-items: center;
+  gap: 40px;
+}
+
+.stats-grid.second-grid .stat-label {
+  font-family: 'DeliriumNCV', sans-serif;
+  font-size: 2.72rem;    
+  font-weight: 400;       
+  font-style: normal;
+  width: 156px;           
+  height: 30px;          
+  line-height: 100%;      
+  letter-spacing: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  opacity: 1;
+}
+
+.stats-grid.second-grid .stat-label:nth-child(1) {
+  margin-left: 25px; 
+}
+
+.stats-grid.second-grid .stat-label:nth-child(2) {
+  justify-self: center;
+  justify-content: center;
+  text-align: center;
+  transform: translateX(-5px);
+}
+
+
+.stats-vertical {
+  display: none; 
+}
+
+/* === Responsive Design === */
+@media (max-width: 1200px) {
+  .stats-container {
+    width: 95%;
+    max-width: 900px;
+  }
+  
+  .stats-grid.first-grid,
+  .stats-grid.second-grid {
+    gap: 20px;
+  }
+}
+
+/* small desktop */
+@media (max-width: 768px) {
+  .about-stats-section {
+    min-height: 400px;
+    padding: 40px 20px;
+  }
+  
+  
+  .stats-container {
+    display: none;
+  }
+
+  
+  .stats-vertical {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
+    gap: 20px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .stats-vertical .stat-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 5px;
+  }
+
+  .stats-vertical .stat-item {
+    font-family: 'FTY DELIRIUM NCV', 'DeliriumNCV', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 114.06px; 
+    line-height: 100%;
+    letter-spacing: 0;
+    text-align: center;
+  }
+
+  .stats-vertical .stat-label {
+    font-family: 'FTY DELIRIUM NCV', 'DeliriumNCV', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 2rem; 
+    line-height: 100%;
+    letter-spacing: 0;
+    text-align: center;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .about-stats-section {
+    min-height: 350px;
+    padding: 30px 15px;
+  }
+
+  .stats-vertical .stat-item {
+    font-size: 80px; 
+  }
+
+  .stats-vertical .stat-label {
+    font-size: 1.5rem;
+  }
+}

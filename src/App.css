@@ -1,0 +1,69 @@
+/*for background continuity */
+.app-shell {
+  width: 100%;
+  position: relative;
+  background: url('/about_bg.svg') center/cover no-repeat; 
+  overflow-x: hidden; 
+  margin: 0;
+  padding:0;
+}
+
+
+.about-wrapper {
+  position: relative;
+  background: transparent; 
+  width:100vw;
+  margin:0;
+  padding-bottom: 0 0 0 0; 
+}
+
+/* Wave transition */
+.wave-transition {
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  transform: translateX(-50%);
+  line-height: 0;
+  margin-top: 0;
+  overflow: visible;
+  z-index: 1;
+  left: 0;
+  transform: none;
+}
+
+
+
+.wave-transition img,
+.wave-transition svg {
+  display: block;
+  width: 100vw;       
+  height: auto;       
+  object-fit: cover;   
+}
+
+/* === Responsive Design === */
+@media (max-width: 768px) {
+  .app-shell {
+    background-size: cover;
+    background-position: center top;
+  }
+  
+  .about-wrapper {
+    width: 100vw;
+    padding: 0;
+  }
+  
+  .wave-transition {
+    width: 100vw;
+    margin-top: -10px; 
+  }
+  
+  .wave-transition img,
+  .wave-transition svg {
+    height: 60px; 
+  }
+}
+
+
+
+
