@@ -42,7 +42,7 @@
 }
 
 /* === Responsive Design === */
-@media (max-width: 768px) {
+@media (max-width: px) {
   .app-shell {
     background-size: cover;
     background-position: center top;

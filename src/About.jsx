@@ -1,81 +1,37 @@
-import { useState, useRef, useEffect } from "react";
 import "./About.css";
-import img1 from "./assets/photo1.png";
-import img2 from "./assets/photo2.png";
-import img3 from "./assets/photo3.png";
-import img4 from "./assets/photo4.png";
-import img5 from "./assets/photo5.png";
-import img6 from "./assets/photo6.png";
-import img7 from "./assets/photo7.png";
-import img8 from "./assets/photo8.png";
+import photoGrp from "./assets/Photo_grp.svg"; // this replaces the slider
 
 export default function About() {
-  const images = [img1, img2, img3, img4, img5, img6, img7, img8];
-  const [index, setIndex] = useState(0);
-  const listRef = useRef(null);
-  const containerRef = useRef(null);
-
-  const recalc = () => {
-    if (!listRef.current || !containerRef.current) return;
-    const cards = Array.from(listRef.current.querySelectorAll(".card"));
-    if (!cards.length) return;
-
-    const cardWidth = cards[0].getBoundingClientRect().width;
-    const gapVar = getComputedStyle(document.documentElement).getPropertyValue("--gap");
-    const gap = parseInt(gapVar) || 20;
-    const centerOffset = containerRef.current.clientWidth / 2 - cardWidth / 2;
-    const translateX = -(index * (cardWidth + gap)) + centerOffset;
-    listRef.current.style.transform = `translateX(${translateX}px)`;
-
-    cards.forEach((c, i) => {
-      c.classList.remove("active", "side");
-      if (i === index) c.classList.add("active");
-      else if (i === index - 1 || i === index + 1) c.classList.add("side");
-      c.setAttribute("aria-hidden", i === index ? "false" : "true");
-    });
-  };
-
-  useEffect(() => {
-    const onResize = () => recalc();
-    window.addEventListener("resize", onResize);
-    recalc();
-    return () => window.removeEventListener("resize", onResize);
-  }, []);
-
-  useEffect(() => recalc(), [index]);
-
-  const prev = () => setIndex((i) => (i > 0 ? i - 1 : 0));
-  const next = () => setIndex((i) => (i < 4 ? i + 1 : 4));
-
   return (
     <section className="about-section">
-      {/* Mobile heading above slider */}
+      {/* Mobile heading above image */}
       <div className="mobile-heading">ABOUT CARPEDIEM</div>
 
-      {/* Slider */}
-      <div className="wrap" ref={containerRef}>
-        <button className="nav prev" onClick={prev} aria-label="Previous slide">‹</button>
-        <div className="slider-window">
-          <ul className="cards" ref={listRef}>
-            {images.map((src, i) => (
-              <li key={i} className="card">
-                <img src={src} alt={`slide ${i + 1}`} loading="lazy" />
-              </li>
-            ))}
-          </ul>
-        </div>
-        <button className="nav next" onClick={next} aria-label="Next slide">›</button>
+      {/* Single photo instead of slider */}
+      <div className="wrap" style={{ textAlign: "center" }}>
+        <img
+          src={photoGrp}
+          alt="Carpediem group"
+          className="about-photo"
+          loading="lazy"
+        />
       </div>
 
-      {/* Mobile paragraphs below slider */}
+      {/* Mobile paragraphs below image */}
       <div className="about-paragraphs">
         <p>
-          Carpediem is SASTRA University's flagship cultural fest where creativity, rhythm and campus spirit collide. Held annually, it brings together teams from across departments to compete, collaborate and celebrate across music, dance, drama, design and more.
-          Carpediem is SASTRA University's flagship cultural fest where creativity, rhythm and campus spirit collide.Carpediem is SASTRA University's flagship cultural fest where creativity, rhythm and campus spirit collide.
+          Carpediem is SASTRA University's flagship cultural fest—a vibrant confluence of creativity, rhythm, and campus spirit. 
+          Held annually, it unites teams from across departments to compete, collaborate, and celebrate through music, dance, drama, design, and more.
+          In its 25th edition, Carpediem flows with the theme “Pravaah”—a celebration of movement, momentum, and transformation. 
+          Like a river carving its path, Pravaah channels the energy of every club and performer into a shared current of expression.
+
         </p>
         <p>
-          From electrifying proshows to hands‑on workshops, it becomes a living canvas of bold expression and youthful momentum. Whether you fill the stage or fuel the crowd—Carpediem is yours to seize.
-          Carpediem is SASTRA University's flagship cultural fest where creativity, rhythm and campus spirit collide.
+          From electrifying proshows to immersive workshops, Carpediem becomes a living canvas of bold ideas and youthful momentum. 
+          Whether you're lighting up the stage or amplifying the crowd, Carpediem is yours to seize.
+          Cultural clubs across campus—from dramatics and design to music and media—fuel this creative surge, each adding their own ripple to the Pravaah.
+          It's not just a fest. It's a flow. And you're part of it
+
         </p>
       </div>
 
@@ -84,18 +40,21 @@ export default function About() {
         <div className="about-word">ABOUT</div>
         <div className="about-text first-para">
           <p>
-            Carpediem is SASTRA University's flagship cultural fest where creativity, rhythm and campus spirit collide. Held annually, it brings together teams from across departments to compete, collaborate and celebrate across music, dance, drama, design and more.
-            Carpediem is SASTRA University's flagship cultural fest where creativity, rhythm and campus spirit collide.Carpediem is SASTRA University's flagship cultural fest where creativity, rhythm and campus spirit collide.
-          </p>
+          The 25th Edition of Carpe Diem is here, flowing back with boundless energy and spirit! 
+          This year, with the theme Pravaah – The Flow of Expressions, we celebrate the rhythm of creativity, the pulse of talent, and the stream of unforgettable moments.
+          From fiery beats to graceful moves, Carpe Diem promises to be a vibrant celebration of expression. 
+        </p>
         </div>
       </div>
+
       <div className="about-grid second-row">
         <div className="about-word large">CARPEDIEM</div>
         <div className="about-text second-para">
           <p>
-            From electrifying proshows to hands‑on workshops, it becomes a living canvas of bold expression and youthful momentum. Whether you fill the stage or fuel the crowd—Carpediem is yours to seize.
-            Carpediem is SASTRA University's flagship cultural fest where creativity, rhythm and campus spirit collide.
-          </p>
+            The highlight, as always, is the Flagship event Mr./Ms. Freshers – the crown of this two-day extravaganza! 
+            Mark your calendars for the 4th & 5th of October – SASTRA awaits you for an endless flow of fun and celebration!
+          
+        </p>
         </div>
       </div>
     </section>
