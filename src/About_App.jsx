@@ -1,6 +1,6 @@
 import About from './About';
 import Count from './Count';
-import './App.css';
+import './About_App.css';
 
 
 export default function App() {
